@@ -6,6 +6,7 @@
   "author": "Abhishek",
   "type": "module",
   "main": "index.js",
+   "engines": { "node": "18.x" },
   "scripts": {
    "start": "node index.js", 
    "server": "nodemon index.js"
