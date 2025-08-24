@@ -6,7 +6,11 @@ const connectDB = async()=>{
         console.log("MongoDB Connected");
     })
 
-    await mongoose.connect(`${process.env.MONGO_URL}/shopHive`)
+   await mongoose.connect(`${process.env.MONGO_URL}/shopHive`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 }
 
 export default connectDB
