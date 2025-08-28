@@ -20,21 +20,13 @@ const Navbar = () => {
       
       {/* Logo */}
       <Link to={"/"}>
-         <div className="flex items-center gap-3">
-        <img 
-  className="w-10 sm:w-18 md:w-22 lg:w-25 xl:w-28 2xl:w-30" 
-  src={assets.MainLogo} 
-  alt="Your Brand Logo" 
-/>
-
-
-               {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide 
-                 bg-gradient-to-r from-[rgba(24,19,108,0.9)] via-slate-600 to-blue-900
-
-                 bg-clip-text text-transparent drop-shadow-sm">
-                Cartify
-               </h1> */}
-         </div>
+        <div className="flex items-center gap-3">
+          <img 
+            className="w-10 sm:w-18 md:w-22 lg:w-25 xl:w-28 2xl:w-30" 
+            src={assets.MainLogo} 
+            alt="Your Brand Logo" 
+          />
+        </div>
       </Link>
 
       {/* Desktop Menu */}
@@ -103,9 +95,18 @@ const Navbar = () => {
         />
       </div>
 
+      {/* Backdrop */}
+      {visible && (
+        <div 
+          onClick={() => setVisible(false)} 
+          className="fixed inset-0 bg-opacity-50 z-40"
+        />
+      )}
+
       {/* Sidebar Menu (Mobile) */}
-      <div className={`absolute top-0 right-0 bottom-0 bg-white text-black transition-all 
-        ${visible ? 'w-2/3 sm:w-1/3 p-6' : 'w-0'} overflow-hidden shadow-lg`}>
+      <div className={`fixed top-0 right-0 h-full bg-white text-black transition-transform duration-300 
+        ${visible ? 'translate-x-0 w-2/3 sm:w-1/3 p-6' : 'translate-x-full w-0'} 
+        overflow-hidden shadow-lg z-50`}>
         <div className="flex flex-col gap-4">
           <div onClick={() => setVisible(false)} className="flex items-center gap-3 cursor-pointer">
             <img className="h-4 rotate-180" src={assets.dropdown_icon} alt="back" />
